@@ -20,6 +20,7 @@ class App extends Component{
   myPigLatinCodeHere = () => {
     // the variable "userInput" will contain the text input from the user modified into an array of words
     // no need to change this variable
+
     let userInput = this.state.phrase.split(" ")
     console.log("userInput:", userInput)
 
@@ -35,8 +36,8 @@ class App extends Component{
 
       // your code here!
 
-      
-      // let rule1 = 
+
+      // let rule1 =
       //userinput = what the user inputs --> phrase
       // translatedWordsArray = value/currentWord of user inputs
       //make conditionals check for rules, use interpolations and slice, then add "ay", "way", etc.
@@ -44,12 +45,24 @@ class App extends Component{
       // Remember: console.log is your friend :)
       //if first consonants cinlude "qu" move both to end add "ay"
       if (currentWord[0] === 'q' && currentWord[1] === 'u'){
-        console.log(`${currentWord.slice(2)}${currentWord.slice(0,2)}ay`) 
+        console.log(`${currentWord.slice(2)}${currentWord.slice(0,2)}ay`)
               //if beings vowel add "way"
   // } else if (currentWord[0] === `a` || currentWord[0] === `e` || currentWord[0] === `i` || currentWord[0] === `o` || currentWord[0] === `u`  ){ console.log(`${currentWord}way`) // manually check for vowels
   } else if (vowelsArray.includes(currentWord[0])){
     console.log(`${currentWord}way`)
-  }  
+  }else if(["a", "e", "i", "o", "u"].indexOf()){
+    var firstcons = currentWord.slice(0, currentWord);
+    var middle = currentWord.slice(currentWord, currentWord.length)
+    currentWord = middle + firstcons + "ay"
+    console.log(currentWord);
+  }
+    //going to use a for loop that finds a vowel
+    //write a conditional *checks if the array includes vowels
+    //if it does include a vowel, we are going to assign it to a variable that saves the index of the vowel
+    //uses break
+
+    // vowelsArray = vowelsArray.indexOf(vowelsArray[0])
+
   //one or more consonants move all consonants to the end and add "ay"
 // check if its not a vowel, if it starts witha  const, shift it to the end
 
