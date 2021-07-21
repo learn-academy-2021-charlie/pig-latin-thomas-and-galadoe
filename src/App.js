@@ -36,37 +36,49 @@ class App extends Component{
 
       // your code here!
 
-
-      // let rule1 =
-      //userinput = what the user inputs --> phrase
-      // translatedWordsArray = value/currentWord of user inputs
-      //make conditionals check for rules, use interpolations and slice, then add "ay", "way", etc.
-
       // Remember: console.log is your friend :)
-      //if first consonants cinlude "qu" move both to end add "ay"
-      if (currentWord[0] === 'q' && currentWord[1] === 'u'){
-        console.log(`${currentWord.slice(2)}${currentWord.slice(0,2)}ay`)
-              //if beings vowel add "way"
-  // } else if (currentWord[0] === `a` || currentWord[0] === `e` || currentWord[0] === `i` || currentWord[0] === `o` || currentWord[0] === `u`  ){ console.log(`${currentWord}way`) // manually check for vowels
-  } else if (vowelsArray.includes(currentWord[0])){
-    console.log(`${currentWord}way`)
-  }else if(["a", "e", "i", "o", "u"].indexOf()){
-    var firstcons = currentWord.slice(0, currentWord);
-    var middle = currentWord.slice(currentWord, currentWord.length)
-    currentWord = middle + firstcons + "ay"
-    console.log(currentWord);
+
+ let indexOfVowel = currentWord.indexOf(vowelsArray[0])  
+
+ let qu =   ["q", "u"]
+//rule 1: if it starts with a vowel add way
+    if (vowelsArray.includes(currentWord[0])){
+      console.log(`${currentWord}way`) 
+      // console.log(indexOfVowel)
+    }
+//rule 2:one ore more consonants move all consecutive consonents to end, add "Ay"
+else if(!vowelsArray.includes(currentWord[0])){
+  console.log(`${currentWord.slice(indexOfVowel)}${currentWord.slice(0, indexOfVowel)}ay`)
+}
+//rule 3: if it start with qu, move qu to back and add "ay", dont forget "squeal"--> ealsquay where "qu doesnt come first"
+else if(vowelsArray[0] === "u"){
+  let q = currentWord.charAt(indexOfVowel -1)
+  if(q === "q"){
+    console.log(`${currentWord.slice(indexOfVowel + 1)}`)
   }
-    //going to use a for loop that finds a vowel
-    //write a conditional *checks if the array includes vowels
-    //if it does include a vowel, we are going to assign it to a variable that saves the index of the vowel
-    //uses break
+}
+//rule 4: y is treated like a vowel if non are present.
 
-    // vowelsArray = vowelsArray.indexOf(vowelsArray[0])
 
-  //one or more consonants move all consonants to the end and add "ay"
-// check if its not a vowel, if it starts witha  const, shift it to the end
 
-      //y is treated like a vowel if none are present
+//rule 1: check if starts with vowel add "way"
+  // } else if (currentWord[0] === `a` || currentWord[0] === `e` || currentWord[0] === `i` || currentWord[0] === `o` || currentWord[0] === `u`  ){ console.log(`${currentWord}way`) // manually check for vowels
+  //   if (vowelsArray.includes(currentWord[0])){
+  //     console.log(`${currentWord}way`)
+  //     //rule 2: if first consonants cinlude "qu" move both to end add "ay"
+  //    }else if (currentWord[0] === 'q' && currentWord[1] === 'u'){
+  //       console.log(`${currentWord.slice(2)}${currentWord.slice(0,2)}ay`)
+  //     //rule 3: check for consonants, if so move to back and add "ay"
+  // }else if(["a", "e", "i", "o", "u"].indexOf()){
+  //   var firstcons = currentWord.slice(0, currentWord);
+  //   var middle = currentWord.slice(currentWord, currentWord.length)
+  //   currentWord = middle + firstcons + "ay"
+  //   console.log(currentWord);
+  // }
+  // //rule 4: y rule 
+  // else if(currentWord){
+
+  // }
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
       return currentWord
