@@ -20,7 +20,8 @@ class App extends Component{
   myPigLatinCodeHere = () => {
     // the variable "userInput" will contain the text input from the user modified into an array of words
     // no need to change this variable
-
+    let pigLatin = ''
+    let translatedPigLatin = []
     let userInput = this.state.phrase.split(" ")
     console.log("userInput:", userInput)
 
@@ -38,26 +39,25 @@ class App extends Component{
 
       // Remember: console.log is your friend :)
 
- let indexOfVowel = currentWord.indexOf(vowelsArray[0])  
-
- let qu =   ["q", "u"]
+ let indexOfVowel = currentWord.indexOf(vowelsArray[0])
+userInput.map(currentWord => {})
 //rule 1: if it starts with a vowel add way
     if (vowelsArray.includes(currentWord[0])){
-      console.log(`${currentWord}way`) 
+      console.log(`${currentWord}way`)
       // console.log(indexOfVowel)
     }
+    //rule 3: if it start with qu, move qu to back and add "ay", dont forget "squeal"--> ealsquay where "qu doesnt come first"
+
+else if(!vowelsArray.includes(currentWord[0]) && currentWord[indexOfVowel - 1] == "q"){
+  console.log(`${currentWord.slice(indexOfVowel + 1)}${currentWord.slice(0, indexOfVowel)}uay`)
+}
 //rule 2:one ore more consonants move all consecutive consonents to end, add "Ay"
 else if(!vowelsArray.includes(currentWord[0])){
   console.log(`${currentWord.slice(indexOfVowel)}${currentWord.slice(0, indexOfVowel)}ay`)
 }
-//rule 3: if it start with qu, move qu to back and add "ay", dont forget "squeal"--> ealsquay where "qu doesnt come first"
-else if(vowelsArray[0] === "u"){
-  let q = currentWord.charAt(indexOfVowel -1)
-  if(q === "q"){
-    console.log(`${currentWord.slice(indexOfVowel + 1)}`)
-  }
-}
+
 //rule 4: y is treated like a vowel if non are present.
+// else if(!vowelsArray.includes(currentWord[0]) && currentWord[indexOfV])
 
 
 
@@ -75,7 +75,7 @@ else if(vowelsArray[0] === "u"){
   //   currentWord = middle + firstcons + "ay"
   //   console.log(currentWord);
   // }
-  // //rule 4: y rule 
+  // //rule 4: y rule
   // else if(currentWord){
 
   // }
