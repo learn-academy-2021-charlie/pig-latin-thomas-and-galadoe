@@ -20,8 +20,7 @@ class App extends Component{
   myPigLatinCodeHere = () => {
     // the variable "userInput" will contain the text input from the user modified into an array of words
     // no need to change this variable
-    let pigLatin = ''
-    let translatedPigLatin = []
+ 
     let userInput = this.state.phrase.split(" ")
     console.log("userInput:", userInput)
 
@@ -40,7 +39,6 @@ class App extends Component{
       // Remember: console.log is your friend :)
 
  let indexOfVowel = currentWord.indexOf(vowelsArray[0])
-userInput.map(currentWord => {})
 //rule 1: if it starts with a vowel add way
     if (vowelsArray.includes(currentWord[0])){
       console.log(`${currentWord}way`)
@@ -57,7 +55,7 @@ else if(!vowelsArray.includes(currentWord[0])){
 }
 
 //rule 4: y is treated like a vowel if non are present.
-// else if(!vowelsArray.includes(currentWord[0]) && currentWord[indexOfV])
+// else if(!vowelsArray.includes(urrentWord[0]) && currentWord[indexOfV])
 
 
 
@@ -140,8 +138,8 @@ else if(!vowelsArray.includes(currentWord[0])){
           <button onClick={this.setUpPreventDefault}>Submit</button>
           <button onClick={this.restartGame}>Clear</button>
         </div>
-        <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+              <p>{this.state.phraseTranslated}</p>
+        <footer>Coded by Thomas & Galadoe~</footer>
       </>
     )
   }
