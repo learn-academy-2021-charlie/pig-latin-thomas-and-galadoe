@@ -30,12 +30,29 @@ class App extends Component{
 
       let vowelsArray = currentWord.split("").filter(vowel => {
         return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
-      })
+      }) //creates array that holds all the vowels.
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
 
+      
+      //y is treated like a vowel if none are present
+      // let rule1 = 
+      //userinput = what the user inputs --> phrase
+      // translatedWordsArray = value/currentWord of user inputs
+      //make conditionals check for rules, use interpolations and slice, then add "ay", "way", etc.
+
       // Remember: console.log is your friend :)
+      //if first consonants cinlude "qu" move both to end add "ay"
+      if (currentWord[0] === 'q' && currentWord[1] === 'u'){
+        console.log(`${currentWord.slice(2)}${currentWord.slice(0,2)}ay`) 
+              //if beings vowel add "way"
+  // } else if (currentWord[0] === `a` || currentWord[0] === `e` || currentWord[0] === `i` || currentWord[0] === `o` || currentWord[0] === `u`  ){ console.log(`${currentWord}way`) // manually check for vowels
+  } else if ( vowelsArray.includes(currentWord[0])){
+    console.log(`${currentWord}way`)
+  }  
+  //one or more consonants move all consonants to the end and add "ay"
+// check if its not a vowel, if it starts witha  const, shift it to the end
 
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
