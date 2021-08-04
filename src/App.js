@@ -20,6 +20,7 @@ class App extends Component{
   myPigLatinCodeHere = () => {
     // the variable "userInput" will contain the text input from the user modified into an array of words
     // no need to change this variable
+ 
     let userInput = this.state.phrase.split(" ")
     console.log("userInput:", userInput)
 
@@ -30,13 +31,52 @@ class App extends Component{
 
       let vowelsArray = currentWord.split("").filter(vowel => {
         return vowel === "a" || vowel === "e" || vowel === "i" || vowel === "o" || vowel === "u"
-      })
+      }) //creates array that holds all the vowels.
       console.log("vowelsArray:", vowelsArray)
 
       // your code here!
 
       // Remember: console.log is your friend :)
 
+ let indexOfVowel = currentWord.indexOf(vowelsArray[0])
+//rule 1: if it starts with a vowel add way
+    if (vowelsArray.includes(currentWord[0])){
+      console.log(`${currentWord}way`)
+      // console.log(indexOfVowel)
+    }
+    //rule 3: if it start with qu, move qu to back and add "ay", dont forget "squeal"--> ealsquay where "qu doesnt come first"
+
+else if(!vowelsArray.includes(currentWord[0]) && currentWord[indexOfVowel - 1] == "q"){
+  console.log(`${currentWord.slice(indexOfVowel + 1)}${currentWord.slice(0, indexOfVowel)}uay`)
+}
+//rule 2:one ore more consonants move all consecutive consonents to end, add "Ay"
+else if(!vowelsArray.includes(currentWord[0])){
+  console.log(`${currentWord.slice(indexOfVowel)}${currentWord.slice(0, indexOfVowel)}ay`)
+}
+
+//rule 4: y is treated like a vowel if non are present.
+// else if(!vowelsArray.includes(urrentWord[0]) && currentWord[indexOfV])
+
+
+
+//rule 1: check if starts with vowel add "way"
+  // } else if (currentWord[0] === `a` || currentWord[0] === `e` || currentWord[0] === `i` || currentWord[0] === `o` || currentWord[0] === `u`  ){ console.log(`${currentWord}way`) // manually check for vowels
+  //   if (vowelsArray.includes(currentWord[0])){
+  //     console.log(`${currentWord}way`)
+  //     //rule 2: if first consonants cinlude "qu" move both to end add "ay"
+  //    }else if (currentWord[0] === 'q' && currentWord[1] === 'u'){
+  //       console.log(`${currentWord.slice(2)}${currentWord.slice(0,2)}ay`)
+  //     //rule 3: check for consonants, if so move to back and add "ay"
+  // }else if(["a", "e", "i", "o", "u"].indexOf()){
+  //   var firstcons = currentWord.slice(0, currentWord);
+  //   var middle = currentWord.slice(currentWord, currentWord.length)
+  //   currentWord = middle + firstcons + "ay"
+  //   console.log(currentWord);
+  // }
+  // //rule 4: y rule
+  // else if(currentWord){
+
+  // }
 
       // ACTION ITEM: change the value of currentWord to the name of whatever variable you made containing your Pig Latin'd word
       return currentWord
@@ -98,8 +138,8 @@ class App extends Component{
           <button onClick={this.setUpPreventDefault}>Submit</button>
           <button onClick={this.restartGame}>Clear</button>
         </div>
-        <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+              <p>{this.state.phraseTranslated}</p>
+        <footer>Coded by Thomas & Galadoe~</footer>
       </>
     )
   }
